@@ -10,7 +10,7 @@ node {
      }
    }
    stage('SonarScan') {
-     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.0') {
+     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
        withSonarQubeEnv(credentialsId: 'sonarID') {
          sh 'mvn verify sonar:sonar'   
        }
@@ -18,7 +18,7 @@ node {
   }
    stage('Artifacts') {
        echo 'package the project artifacts..'
-       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.0') {
+       withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
        sh 'mvn package'
      }
    
